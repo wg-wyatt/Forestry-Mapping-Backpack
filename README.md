@@ -7,10 +7,6 @@
 ## Overview
 The LiDAR Backpack Mapping System is a modular mobile sensing platform designed for ecological and forestry data collection. The system integrates a rotating LiDAR sensor, inertial measurement unit (IMU), onboard processing, and custom electronics into a compact, field-deployable package capable of generating high-resolution three-dimensional point clouds. This project encompassed the complete mechanical and electrical design process, including CAD modeling, sheet metal design, custom PCB development, system architecture, MATLAB-based engineering analysis, and structural simulation. The design emphasizes manufacturability, modularity, and ease of assembly while remaining suitable for low-volume fabrication.
 
-## Project Disclaimer
-
-This project was completed in collaboration with the Purdue Forestry Department. Certain project details, files, and implementation documentation may be limited due to sponsor requirements and intellectual property considerations.
-
 ---
 
 ## Key Features
@@ -23,6 +19,10 @@ This project was completed in collaboration with the Purdue Forestry Department.
 - Custom KiCad PCB
 - FEA-validated structural design
 - Optimized for low-volume manufacturing
+
+### Project Disclaimer
+
+This project was completed in collaboration with the Purdue Forestry Department. Certain project details, files, and implementation documentation may be limited due to sponsor requirements and intellectual property considerations.
 
 ---
 
@@ -239,9 +239,104 @@ The system is currently at the fabrication-ready stage. Fabrication and physical
 
 ## Future Work
 
+The next phase of development would focus on fabrication, system integration, and validation of the completed design. Future work would transition the system from a fabrication-ready design into a fully tested field deployment platform.
+
+### Prototype Fabrication and Integration
+
+Future work would begin with fabrication and assembly of the redesigned LiDAR platform. This phase would include integration of the mechanical assembly, electrical hardware, sensing components, and onboard processing system.
+
+Planned integration tasks include:
+
+- Fabrication of mechanical components
+- Assembly of the rotating LiDAR mechanism
+- Integration of sensors, motor controller, and electronics
+- Verification of mechanical and electrical interfaces
+
+### System Validation
+
+Following fabrication, the system would undergo a series of validation tests to evaluate performance under realistic operating conditions.
+
+#### Mechanical Validation
+
+Testing would include:
+
+- **Weight validation:** Confirm total system mass meets the design requirement.
+- **Drop testing:** Evaluate structural durability and ensure components remain functional after accidental impacts.
+- **Backpack mobility testing:** Evaluate system usability during normal hiking conditions and verify that the updated mounting configuration improves integration with the backpack platform.
+
+#### Environmental Validation
+
+The enclosure and hardware protection would be evaluated through:
+
+- Weather exposure testing
+- Verification of enclosure protection against environmental conditions
+- Confirmation that internal electronics remain protected during field operation
+
+#### Data Collection and Algorithm Validation
+
+The sensing system would be evaluated through field data collection tests, including:
+
+- **Wall test:** Walking the backpack along a controlled surface to evaluate point cloud consistency and rotational accuracy.
+- Validation of LiDAR point cloud generation with the plant recognition algorithm.
+- Evaluation of sensor synchronization and positional tracking accuracy.
+
+#### Electrical Validation
+
+Electrical integration testing would verify:
+
+- Stable power delivery from the existing 24 V battery system
+- Reliable communication between sensors, motor controller, and processing hardware
+- Continuous operation of the motor and sensing systems during data collection
+
+### Future Hardware Improvements
+
+Additional hardware improvements identified during the design process include:
+
+- Replacing the Arduino Nano-based control system with an STM32 microcontroller to improve processing capability, communication flexibility, and future expandability.
+- Consolidating the current distributed PCB architecture into a single integrated interface board to reduce wiring complexity, improve reliability, and simplify assembly.
+
+
 
 ---
 
 ## Skills Demonstrated
+
+### Mechanical Design
+- SolidWorks CAD modeling and assembly design
+- Mechanical packaging and system integration
+- Timing belt transmission design and gear ratio calculations
+- Structural design considerations for field-deployed hardware
+- Design for manufacturing (CNC machining, sheet metal fabrication, additive manufacturing)
+- Modular assembly and serviceability considerations
+
+### Electrical and Embedded Systems
+- System-level electrical architecture development
+- Power distribution and hardware integration
+- Sensor and actuator interfacing
+- PCB system design using KiCad
+- Embedded controller integration and communication planning
+
+### Robotics and Sensing Systems
+- LiDAR-based 3D mapping systems
+- IMU integration and orientation tracking
+- Encoder-based position feedback systems
+- Sensor synchronization concepts
+- Point cloud generation and processing workflows
+
+### Engineering Analysis
+- MATLAB-based system modeling and scanning analysis
+- Rotational velocity optimization
+- Mechanical drivetrain calculations
+- Torque and load analysis
+- Finite Element Analysis 
+
+### Engineering Tools
+- SolidWorks
+- KiCad
+- MATLAB
+- ANSYS Mechanical
+- Python
+- Git/GitHub
+- Technical documentation and engineering communication
 
 
