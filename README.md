@@ -125,12 +125,33 @@ The LiDAR sensor collects spatial measurements at a fixed internal dispersion fr
 
 The MATLAB model incorporated the LiDAR measurement frequency and simulated the effect of varying secondary axis rotational speeds on point cloud coverage. Multiple rotational velocities were evaluated to determine the operating range that provided continuous spatial coverage while maintaining practical mechanical constraints.
 
-The resulting analysis established the required rotational velocity of the LiDAR assembly, which was then used as a design input for the motor and timing belt transmission calculations.
+The resulting analysis established the required rotational velocity of the LiDAR assembly, which was then used as a design input for the motor and timing belt transmission calculations. Add the details(final rpm, lidar rpm, lidar spec)
 
 <!-- Insert MATLAB plot/simulation image here -->
 <!-- Insert MATLAB plot/simulation code here -->
 
 ### Rotation System and Gear Design
+
+The rotational axis was designed to provide controlled motion of the LiDAR assembly while satisfying the rotational velocity requirements established through MATLAB scanning analysis. The drivetrain design focused on selecting a reliable transmission method that could provide the required speed reduction, torque capacity, and compact packaging.
+
+A T2 timing belt system was selected due to its suitability for compact motion transmission and availability of standardized pulley components. Based on manufacturer recommendations, the design targeted a 5:1 reduction ratio to balance torque multiplication, rotational speed, and reliable belt engagement.
+
+The drivetrain geometry was developed from the selected motor pulley. The driven pulley size was calculated based on the required reduction ratio, and the resulting center-to-center spacing and belt length were determined to ensure proper belt fit and operation.
+
+Key calculations included:
+
+- Driven pulley sizing based on required gear ratio
+- Pulley center separation distance
+- Required timing belt length
+- Rotational velocity after reduction
+- Torque required to rotate the LiDAR assembly
+- Motor wind-up torque under load conditions
+
+The final transmission design provided the required rotational speed while maintaining sufficient torque capacity to rotate the LiDAR assembly and associated mechanical components.
+
+<!-- Insert timing belt sketch/calculations here -->
+
+<!-- Insert drivetrain CAD image here -->
 
 ### Structural Analysis (FEA)
 
