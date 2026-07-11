@@ -115,6 +115,25 @@ The final architecture integrates mechanical, electrical, and software subsystem
 
 ## Engineering Analysis
 
+Engineering analysis was used to establish design parameters and validate critical system decisions. The analysis process began by evaluating the relationship between LiDAR measurement characteristics and scanning motion, which informed the required rotational velocity of the system. Mechanical drive calculations were then performed to select an appropriate transmission design, followed by structural analysis of the final assembly.
+
+### MATLAB Scanning Analysis
+
+To ensure complete point cloud coverage, a MATLAB model was developed to evaluate the relationship between the LiDAR's internal measurement frequency and the rotational speed of the secondary scanning axis.
+
+The LiDAR sensor collects spatial measurements at a fixed internal dispersion frequency. Because the sensor was mounted on a rotating platform, the angular displacement between consecutive measurements depended on the rotational velocity of the secondary axis. An incorrect rotational speed could result in insufficient point density, uneven coverage, or gaps within the generated point cloud.
+
+The MATLAB model incorporated the LiDAR measurement frequency and simulated the effect of varying secondary axis rotational speeds on point cloud coverage. Multiple rotational velocities were evaluated to determine the operating range that provided continuous spatial coverage while maintaining practical mechanical constraints.
+
+The resulting analysis established the required rotational velocity of the LiDAR assembly, which was then used as a design input for the motor and timing belt transmission calculations.
+
+<!-- Insert MATLAB plot/simulation image here -->
+<!-- Insert MATLAB plot/simulation code here -->
+
+### Rotation System and Gear Design
+
+### Structural Analysis (FEA)
+
 
 ---
 
