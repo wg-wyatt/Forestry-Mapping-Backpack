@@ -1,4 +1,4 @@
-# Forestry-Mapping-Backpack
+# Forestry Mapping Backpack
 
 <!-- Insert Cover Image Here -->
 
