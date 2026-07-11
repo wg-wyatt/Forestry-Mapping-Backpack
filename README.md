@@ -36,6 +36,30 @@ The objective of this project was to design a manufacturable LiDAR mounting syst
 
 ## Design Requirements
 
+The following design requirements were established during the concept development phase to guide system architecture and engineering decisions. Requirements were selected to balance field usability, sensing performance, manufacturability, and compatibility with the existing Purdue Forestry Department backpack platform.
+
+### Mechanical Requirements
+
+| ID | Requirement | Target | Verification Method |
+|----|-------------|--------|---------------------|
+| DR-01 | Total system weight | < 5 kg (excluding backpack) | CAD mass properties |
+| DR-02 | Structural durability | Withstand 5 g loading without structural failure | Finite Element Analysis (FEA) |
+| DR-03 | Manufacturability | Components shall be manufacturable using conventional CNC machining, sheet metal fabrication, additive manufacturing, and commercially available hardware | Design review and manufacturing drawings |
+| DR-04 | Serviceability | Electronics and wearable components shall be removable without permanent modification to the assembly | Assembly review |
+
+### Functional Requirements
+
+| ID | Requirement | Target | Verification Method |
+|----|-------------|--------|---------------------|
+| FR-01 | Point cloud coverage | Provide 360° scanning with a secondary axis of rotation to improve spatial coverage and reduce occlusions | MATLAB analysis and future field validation |
+| FR-02 | Rotational position tracking | Report motor position to ±0.01° for point cloud reconstruction | Encoder specification and software verification |
+
+### Integration Requirements
+
+| ID | Requirement | Target | Verification Method |
+|----|-------------|--------|---------------------|
+| IR-01 | Backpack compatibility | Integrate with the existing Purdue Forestry backpack frame, 24 V hot-swappable M18 battery system, and existing data interfaces | CAD integration and electrical design review |
+| IR-02 | Environmental protection | Minimum enclosure protection equivalent to IP32 | Enclosure design review and future ingress testing |
 
 ---
 
