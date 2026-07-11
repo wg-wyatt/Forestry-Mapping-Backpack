@@ -36,20 +36,49 @@ The objective of this project was to design a manufacturable LiDAR mounting syst
 
 ## Design Requirements
 
+
+---
+
 ## System Architecture
+
+
+---
 
 ## Mechanical Design
 
+
+---
+
 ## Electrical Design
+
+
+---
 
 ## Software Architecture
 
+
+---
+
 ## Engineering Analysis
+
+
+---
 
 ## Design for Manufacturing
 
+
+---
+
 ## Project Status
+
+
+---
 
 ## Future Work
 
+
+---
+
 ## Skills Demonstrated
+
+
