@@ -339,4 +339,19 @@ Additional hardware improvements identified during the design process include:
 - Git/GitHub
 - Technical documentation and engineering communication
 
+---
+
+## Acknowledgments
+
+This project was completed in collaboration with the Purdue Forestry Department as part of a senior design project focused on improving field deployment of plant recognition and LiDAR mapping systems.
+
+Special thanks to **Evan Flatt, Purdue Forestry Department**, for sponsoring the project, providing the application requirements, domain knowledge, and guidance that informed the system design.
+
+The initial benchmark platform was developed from an existing legacy system and served as the foundation for subsequent design iterations. The integrated LiDAR mapping platform presented in this portfolio represents the continued development of that system, including the mechanical redesign, system architecture, drivetrain analysis, and integration planning.
+
+Additional contributions from team members are acknowledged where applicable, including assistance with software development and specific CAD contributions.
+
+---
+
+## References
 
