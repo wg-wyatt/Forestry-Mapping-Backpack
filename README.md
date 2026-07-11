@@ -128,6 +128,7 @@ The MATLAB model incorporated the LiDAR measurement frequency and simulated the 
 The resulting analysis established the required rotational velocity of the LiDAR assembly, which was then used as a design input for the motor and timing belt transmission calculations. Add the details(final rpm, lidar rpm, lidar spec)
 
 <!-- Insert MATLAB plot/simulation image here -->
+
 <!-- Insert MATLAB plot/simulation code here -->
 
 ### Rotation System and Gear Design
@@ -145,7 +146,7 @@ Key calculations included:
 - Required timing belt length
 - Rotational velocity after reduction
 - Torque required to rotate the LiDAR assembly
-- Motor wind-up torque under load conditions
+- Motor startup torque under load conditions
 
 The final transmission design provided the required rotational speed while maintaining sufficient torque capacity to rotate the LiDAR assembly and associated mechanical components.
 
