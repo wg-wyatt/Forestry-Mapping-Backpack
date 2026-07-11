@@ -7,6 +7,10 @@
 ## Overview
 The LiDAR Backpack Mapping System is a modular mobile sensing platform designed for ecological and forestry data collection. The system integrates a rotating LiDAR sensor, inertial measurement unit (IMU), onboard processing, and custom electronics into a compact, field-deployable package capable of generating high-resolution three-dimensional point clouds. This project encompassed the complete mechanical and electrical design process, including CAD modeling, sheet metal design, custom PCB development, system architecture, MATLAB-based engineering analysis, and structural simulation. The design emphasizes manufacturability, modularity, and ease of assembly while remaining suitable for low-volume fabrication.
 
+## Project Disclaimer
+
+This project was completed in collaboration with the Purdue Forestry Department. Certain project details, files, and implementation documentation may be limited due to sponsor requirements and intellectual property considerations.
+
 ---
 
 ## Key Features
@@ -161,11 +165,75 @@ The final transmission design provided the required rotational speed while maint
 
 ## Design for Manufacturing
 
+The LiDAR Backpack Mapping System was designed with low-volume fabrication in mind. While the system was developed as a research prototype, the mechanical architecture prioritized manufacturability, accessibility of components, and ease of assembly using processes available to small-scale fabrication shops.
+
+### Manufacturing Approach
+
+The design utilizes a combination of conventional manufacturing methods including CNC machining, sheet metal fabrication, additive manufacturing, and commercially available hardware. Manufacturing processes were selected based on part function, required precision, and cost considerations.
+
+Critical structural and alignment features were designed around machinable interfaces, while non-critical components were designed to reduce manufacturing complexity and allow rapid iteration.
+
+### Component Selection
+
+Commercially available components were incorporated where possible to reduce custom fabrication requirements. Examples include:
+
+- Timing belt and pulley components
+- Bearings
+- Fasteners
+- Motor and encoder hardware
+- Electrical connectors
+
+Using standardized components reduces lead times, simplifies replacement, and improves long-term serviceability.
+
+### Assembly and Serviceability
+
+The system was designed as a modular assembly with separate mechanical, electrical, and sensing components. This approach allows individual subsystems to be accessed, replaced, or modified without requiring complete disassembly of the platform.
+
+Design considerations included:
+
+- Accessible fasteners
+- Modular enclosure design
+- Cable routing considerations
+- Separation of structural and electronic components
+
+### Future Manufacturing Considerations
+
+If transitioned from prototype design to production, additional engineering documentation would be developed, including detailed manufacturing drawings, tolerance specifications, and GD&T on critical interfaces.
+
+Potential future manufacturing validation would include:
+
+- Fabrication of prototype components
+- Assembly verification
+- Dimensional inspection
+- Structural testing
+
 
 ---
 
 ## Project Status
 
+## Project Status
+
+The LiDAR Backpack Mapping System was developed as part of a senior design project in collaboration with the Purdue Forestry Department. The project progressed through multiple design iterations, beginning with the development of a benchmark system and continuing toward a fully integrated field-deployable platform.
+
+### Benchmark System
+
+An initial benchmark system was developed by the senior design team to provide a functional platform for evaluating the plant recognition workflow. This system utilized lower-grade electronics and a simplified mounting approach that allowed it to be installed on the existing backpack platform.
+
+The benchmark system established a baseline hardware configuration and provided a foundation for future development. Further validation of the benchmark system with the plant recognition algorithm is planned.
+
+### Integrated System Design
+
+The current iteration focuses on integrating the complete sensing, motion, power, and processing architecture into a single manufacturable platform. The detailed design phase has been completed, including:
+
+- Mechanical system design
+- Sensor and hardware integration
+- Electrical architecture development
+- Motion system analysis
+- MATLAB-based scanning analysis
+- Manufacturing considerations
+
+The system is currently at the fabrication-ready stage. Fabrication and physical validation will proceed upon sponsor approval and project continuation.
 
 ---
 
