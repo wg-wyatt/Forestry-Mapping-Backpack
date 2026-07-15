@@ -437,3 +437,13 @@ Additional contributions from team members are acknowledged where applicable, in
 
 ## References
 
+<p align="center">
+  <img src="https://img.shields.io/badge/References-Compiling-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" alt="References Status" />
+</p>
+
+<blockquote>
+  <p align="center">
+    <strong>📚 Academic & Technical References coming soon.</strong><br>
+    Currently compiling literature on LiDAR spatial mapping algorithms, 2D-to-3D point cloud reconstruction math, and academic papers on forestry canopy density measurement standards.
+  </p>
+</blockquote>
