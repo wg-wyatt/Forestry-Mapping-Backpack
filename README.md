@@ -183,7 +183,16 @@ Critical functional interfaces were designed for repeatable assembly and would b
 ---
 
 ## Software Architecture
+<p align="center">
+  <img src="https://img.shields.io/badge/Firmware%20%26%20Controls-Under%20Development-blueviolet?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="Firmware Status" />
+</p>
 
+<blockquote>
+  <p align="center">
+    <strong>💻 Embedded Software & Control Loop documentation coming soon.</strong><br>
+    This section will document the C++ firmware running on the microcontroller, including the closed-loop PID velocity control for the secondary axis motor, encoder feedback processing, and signal routing.
+  </p>
+</blockquote>
 
 ---
 
@@ -231,7 +240,16 @@ The final transmission design provided the required rotational speed while maint
 <!-- Insert drivetrain CAD image here -->
 
 ### Structural Analysis (FEA)
+<p align="center">
+  <img src="https://img.shields.io/badge/FEA%20Analysis-In%20Progress-orange?style=for-the-badge&logo=ansys&logoColor=white" alt="FEA Status" />
+</p>
 
+<blockquote>
+  <p align="center">
+    <strong>📊 Finite Element Analysis (FEA) coming soon.</strong><br>
+    Currently setting up structural simulations in ANSYS to evaluate stress concentrations, safety margins, and structural displacement under dynamic load conditions for the custom mounting bracketry.
+  </p>
+</blockquote>
 
 ---
 
@@ -241,7 +259,7 @@ The LiDAR Backpack Mapping System was designed with low-volume fabrication in mi
 
 ### Manufacturing Approach
 
-The design utilizes a combination of conventional manufacturing methods including CNC machining, sheet metal fabrication, additive manufacturing, and commercially available hardware. Manufacturing processes were selected based on part function, required precision, and cost considerations.
+The design utilizes a combination of conventional manufacturing methods, including CNC machining, sheet metal fabrication, additive manufacturing, and commercially available hardware. Manufacturing processes were selected based on part function, required precision, and cost considerations.
 
 Critical structural and alignment features were designed around machinable interfaces, while non-critical components were designed to reduce manufacturing complexity and allow rapid iteration.
 
@@ -284,8 +302,6 @@ Potential future manufacturing validation would include:
 
 ## Project Status
 
-## Project Status
-
 The LiDAR Backpack Mapping System was developed as part of a senior design project in collaboration with the Purdue Forestry Department. The project progressed through multiple design iterations, beginning with the development of a benchmark system and continuing toward a fully integrated field-deployable platform.
 
 ### Benchmark System
@@ -315,7 +331,7 @@ The next phase of development would focus on fabrication, system integration, an
 
 ### Prototype Fabrication and Integration
 
-Future work would begin with fabrication and assembly of the redesigned LiDAR platform. This phase would include integration of the mechanical assembly, electrical hardware, sensing components, and onboard processing system.
+Future work would begin with fabrication and assembly of the redesigned LiDAR platform. This phase would include the integration of the mechanical assembly, electrical hardware, sensing components, and onboard processing system.
 
 Planned integration tasks include:
 
@@ -323,10 +339,6 @@ Planned integration tasks include:
 - Assembly of the rotating LiDAR mechanism
 - Integration of sensors, motor controller, and electronics
 - Verification of mechanical and electrical interfaces
-
-### System Validation
-
-Following fabrication, the system would undergo a series of validation tests to evaluate performance under realistic operating conditions.
 
 #### Mechanical Validation
 
@@ -366,8 +378,6 @@ Additional hardware improvements identified during the design process include:
 
 - Replacing the Arduino Nano-based control system with an STM32 microcontroller to improve processing capability, communication flexibility, and future expandability.
 - Consolidating the current distributed PCB architecture into a single integrated interface board to reduce wiring complexity, improve reliability, and simplify assembly.
-
-
 
 ---
 
