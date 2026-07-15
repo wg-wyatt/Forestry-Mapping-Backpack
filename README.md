@@ -3,12 +3,12 @@
 <table align="center" width="100%">
   <tr>
     <td align="center" valign="middle" width="50%">
-      <img src="Media/Main_Assem_v2.JPG" alt="Forestry Mapping Backpack Exterior" />
+      <img src="Media/Main_Assem_V4.JPG" alt="Forestry Mapping Backpack Exterior" />
       <br>
       <b>Exterior Assembly</b>
     </td>
     <td align="center" valign="middle" width="50%">
-      <img src="Media/Main_Assem_inside_v2.JPG" alt="Forestry Mapping Backpack Interior" />
+      <img src="Media/Main_Assem_inside_V4.JPG" alt="Forestry Mapping Backpack Interior" />
       <br>
       <b>Interior Assembly</b>
     </td>
@@ -114,22 +114,26 @@ The processing subsystem uses an NVIDIA Jetson Orin platform to collect sensor d
 
 ## Mechanical Design
 
-The mechanical design of the LiDAR Backpack Mapping System focused on creating a compact, modular, and manufacturable platform capable of integrating the sensing, motion, and electrical subsystems while remaining compatible with the existing Purdue Forestry backpack. Key design objectives included reducing the sensor offset from the user's center of mass, incorporating a secondary axis of rotation, protecting sensitive electronics, and simplifying assembly and maintenance.
-
-<!-- Insert Full Assembly Render Here -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%">
+  <tr>
+    <td width="10%" align="center" valign="middle">
+      <img src="Media/Main_Assem_V4.JPG" alt="Forestry Mapping Backpack Full Assembly" width="100%" />
+    </td>
+    <td width="55%" valign="middle">
+      <p>The mechanical design of the LiDAR Backpack Mapping System focused on creating a compact, modular, and manufacturable platform capable of integrating the sensing, motion, and electrical subsystems while remaining compatible with the existing Purdue Forestry backpack. Key design objectives included reducing the sensor offset from the user's center of mass, incorporating a secondary axis of rotation, protecting sensitive electronics, and simplifying assembly and maintenance.</p>
+    </td>
+  </tr>
+</table>
 
 ### System Packaging
 
-The system was designed around a modular architecture consisting of four primary mechanical assemblies:
+The system was designed around a modular architecture consisting of 3 primary mechanical assemblies:
 
 - Backpack mounting interface
 - Rotating LiDAR platform
-- Motion transmission system
 - Electronics enclosure
 
 Separating these functions into individual assemblies allows components to be serviced, modified, or replaced without requiring complete disassembly of the platform. The modular approach also supports future upgrades and simplifies manufacturing.
-
-<!-- Insert Exploded Assembly View Here -->
 
 ### Rotational Drive System
 
@@ -137,7 +141,21 @@ A motor-driven timing belt transmission was selected to rotate the LiDAR assembl
 
 The drivetrain utilizes a 15-tooth driving pulley and a 75-tooth driven pulley, producing a 5:1 reduction ratio. This configuration increases available output torque while achieving the rotational speed required for point cloud generation. Transmission geometry, including pulley spacing and belt length, was determined through analytical calculations to ensure proper belt engagement and reliable operation.
 
-<!-- Insert Drive System CAD Image Here -->
+<p align="center">
+  <img src="Media/Mech_Drive_System.JPG" alt="Mechanical Drive System Assembly" width="650" />
+  <br>
+  <em>Rotational Drive System Assembly</em>
+</p>
+
+<details>
+  <summary align="center"><b>📐 View Exploded CAD Assembly</b></summary>
+  <br>
+  <p align="center">
+    <img src="Media/Mech_Drive_System_expl.JPG" alt="Mechanical Drive System Exploded View" width="650" />
+    <br>
+    <em>Exploded Assembly showcasing the T2 timing belt drivetrain, bearings, and custom motor mount.</em>
+  </p>
+</details>
 
 ### Structural Design
 
@@ -145,15 +163,11 @@ The structural frame was designed to support the rotating LiDAR assembly while m
 
 Mechanical interfaces were designed using commercially available bearings, fasteners, and drivetrain components to reduce manufacturing complexity and improve long-term maintainability.
 
-<!-- Insert Section View or Structural Detail Here -->
-
 ### Electronics Packaging
 
 The enclosure was designed to protect the custom electronics while providing convenient access for assembly, maintenance, and future upgrades. Internal packaging considered component accessibility, cable routing, connector placement, and integration with the rotating assembly.
 
 The enclosure architecture allows the sensing, control, and power subsystems to be integrated into a compact package while reducing exposed wiring during field operation.
-
-<!-- Insert Electronics Enclosure Render Here -->
 
 ### Design for Manufacturing
 
@@ -169,7 +183,16 @@ Critical functional interfaces were designed for repeatable assembly and would b
 ---
 
 ## Software Architecture
+<p align="center">
+  <img src="https://img.shields.io/badge/Firmware%20%26%20Controls-Under%20Development-blueviolet?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="Firmware Status" />
+</p>
 
+<blockquote>
+  <p align="center">
+    <strong>💻 Embedded Software & Control Loop documentation coming soon.</strong><br>
+    This section will document the C++ firmware running on the microcontroller, including the closed-loop PID velocity control for the secondary axis motor, encoder feedback processing, and signal routing.
+  </p>
+</blockquote>
 
 ---
 
@@ -178,44 +201,48 @@ Critical functional interfaces were designed for repeatable assembly and would b
 Engineering analysis was used to establish design parameters and validate critical system decisions. The analysis process began by evaluating the relationship between LiDAR measurement characteristics and scanning motion, which informed the required rotational velocity of the system. Mechanical drive calculations were then performed to select an appropriate transmission design, followed by structural analysis of the final assembly.
 
 ### MATLAB Scanning Analysis
+A MATLAB model was developed to simulate the point cloud generated by a LiDAR unit rotating about two independent axes. The objective of the analysis was to determine the external rotational frequency required to achieve complete and uniform point cloud coverage from a stationary position.
 
-To ensure complete point cloud coverage, a MATLAB model was developed to evaluate the relationship between the LiDAR's internal measurement frequency and the rotational speed of the secondary scanning axis.
+The LiDAR's internal emitter operates at a rotational frequency of 10 Hz. Because the LiDAR was mounted on a secondary rotating axis, the relationship between the internal scan frequency and the external rotational frequency directly influences point cloud density and spatial coverage. Selecting an external rotational frequency that is an integer factor or multiple of the internal 10 Hz scan frequency results in periodic overlap of the scan pattern, producing incomplete coverage and gaps within the reconstructed point cloud.
 
-The LiDAR sensor collects spatial measurements at a fixed internal dispersion frequency. Because the sensor was mounted on a rotating platform, the angular displacement between consecutive measurements depended on the rotational velocity of the secondary axis. An incorrect rotational speed could result in insufficient point density, uneven coverage, or gaps within the generated point cloud.
+Multiple external rotational frequencies were evaluated using the MATLAB model. Simulation results demonstrated that secondary axis rotational frequencies of **3 Hz** and **7 Hz** produced the most uniform point cloud distribution while minimizing repeated scan paths. Based on these results, the external rotational speed requirement for the mechanical drive system was established.
 
-The MATLAB model incorporated the LiDAR measurement frequency and simulated the effect of varying secondary axis rotational speeds on point cloud coverage. Multiple rotational velocities were evaluated to determine the operating range that provided continuous spatial coverage while maintaining practical mechanical constraints.
+<p align="center">
+  <img src="Media/Matlab_LiDAR_Map.jpg" alt="MATLAB LiDAR Point Cloud Coverage Simulation" width="650" />
+  <br>
+  <em>MATLAB Simulation showing point cloud coverage density over a 360-degree sweep at a 2.0 RPM target secondary axis speed</em>
+</p>
 
-The resulting analysis established the required rotational velocity of the LiDAR assembly, which was then used as a design input for the motor and timing belt transmission calculations. Add the details(final rpm, lidar rpm, lidar spec)
-
-<!-- Insert MATLAB plot/simulation image here -->
-
-<!-- Insert MATLAB plot/simulation code here -->
+The complete simulation script used to model the scanning spatial density can be accessed here:
+👉 **[LiDAR_CoverageArea.m](Analysis%20%26%20Code/LiDAR_CoverageArea.m)**
 
 ### Rotation System and Gear Design
 
-The rotational axis was designed to provide controlled motion of the LiDAR assembly while satisfying the rotational velocity requirements established through MATLAB scanning analysis. The drivetrain design focused on selecting a reliable transmission method that could provide the required speed reduction, torque capacity, and compact packaging.
+The rotational drive system was developed to achieve the operating speed established through the MATLAB analysis while maintaining reliable torque transmission and compact packaging.
 
-A T2 timing belt system was selected due to its suitability for compact motion transmission and availability of standardized pulley components. Based on manufacturer recommendations, the design targeted a 5:1 reduction ratio to balance torque multiplication, rotational speed, and reliable belt engagement.
+A T2 timing belt was selected to provide positive, slip-free torque transmission between the motor and the rotating LiDAR assembly. Manufacturer design recommendations from MiSUMi were used during transmission selection, including a maximum recommended reduction ratio of **5:1** and a minimum pinion tooth engagement greater than six teeth. A 2 mm pitch timing belt was selected because it is commonly used in high-precision, low-speed motion systems and is readily available as a commercial component.
 
-The drivetrain geometry was developed from the selected motor pulley. The driven pulley size was calculated based on the required reduction ratio, and the resulting center-to-center spacing and belt length were determined to ensure proper belt fit and operation.
+Using the selected pinion gear, the driven pulley diameter, tooth count, center-to-center pulley spacing, and timing belt length were analytically determined to satisfy both the required reduction ratio and packaging constraints.
 
-Key calculations included:
+Once the drivetrain geometry was established, the rotating assembly was modeled to estimate its mass moment of inertia. The driven pulley was approximated as a solid cylinder, while the LiDAR assembly was modeled as a rotating mass about the same axis. These values were used to calculate the torque required to accelerate the system to its operating speed within the desired startup time.
 
-- Driven pulley sizing based on required gear ratio
-- Pulley center separation distance
-- Required timing belt length
-- Rotational velocity after reduction
-- Torque required to rotate the LiDAR assembly
-- Motor startup torque under load conditions
+The calculated rotational speed and torque requirements were compared against the selected motor specifications to verify that the drivetrain would operate within the manufacturer's recommended operating range.
 
-The final transmission design provided the required rotational speed while maintaining sufficient torque capacity to rotate the LiDAR assembly and associated mechanical components.
-
-<!-- Insert timing belt sketch/calculations here -->
-
-<!-- Insert drivetrain CAD image here -->
+<p align="center">
+  📂 <strong><a href="Analysis%20%26%20Code/GearSystemCalc.docx">View Gear System Calculations (GearSystemCalc.docx)</a></strong>
+</p>
 
 ### Structural Analysis (FEA)
+<p align="center">
+  <img src="https://img.shields.io/badge/FEA%20Analysis-In%20Progress-orange?style=for-the-badge&logo=ansys&logoColor=white" alt="FEA Status" />
+</p>
 
+<blockquote>
+  <p align="center">
+    <strong>📊 Finite Element Analysis (FEA) coming soon.</strong><br>
+    Currently setting up structural simulations in ANSYS to evaluate stress concentrations, safety margins, and structural displacement under dynamic load conditions for the custom mounting bracketry.
+  </p>
+</blockquote>
 
 ---
 
@@ -225,7 +252,7 @@ The LiDAR Backpack Mapping System was designed with low-volume fabrication in mi
 
 ### Manufacturing Approach
 
-The design utilizes a combination of conventional manufacturing methods including CNC machining, sheet metal fabrication, additive manufacturing, and commercially available hardware. Manufacturing processes were selected based on part function, required precision, and cost considerations.
+The design utilizes a combination of conventional manufacturing methods, including CNC machining, sheet metal fabrication, additive manufacturing, and commercially available hardware. Manufacturing processes were selected based on part function, required precision, and cost considerations.
 
 Critical structural and alignment features were designed around machinable interfaces, while non-critical components were designed to reduce manufacturing complexity and allow rapid iteration.
 
@@ -268,8 +295,6 @@ Potential future manufacturing validation would include:
 
 ## Project Status
 
-## Project Status
-
 The LiDAR Backpack Mapping System was developed as part of a senior design project in collaboration with the Purdue Forestry Department. The project progressed through multiple design iterations, beginning with the development of a benchmark system and continuing toward a fully integrated field-deployable platform.
 
 ### Benchmark System
@@ -299,7 +324,7 @@ The next phase of development would focus on fabrication, system integration, an
 
 ### Prototype Fabrication and Integration
 
-Future work would begin with fabrication and assembly of the redesigned LiDAR platform. This phase would include integration of the mechanical assembly, electrical hardware, sensing components, and onboard processing system.
+Future work would begin with fabrication and assembly of the redesigned LiDAR platform. This phase would include the integration of the mechanical assembly, electrical hardware, sensing components, and onboard processing system.
 
 Planned integration tasks include:
 
@@ -307,10 +332,6 @@ Planned integration tasks include:
 - Assembly of the rotating LiDAR mechanism
 - Integration of sensors, motor controller, and electronics
 - Verification of mechanical and electrical interfaces
-
-### System Validation
-
-Following fabrication, the system would undergo a series of validation tests to evaluate performance under realistic operating conditions.
 
 #### Mechanical Validation
 
@@ -351,8 +372,6 @@ Additional hardware improvements identified during the design process include:
 - Replacing the Arduino Nano-based control system with an STM32 microcontroller to improve processing capability, communication flexibility, and future expandability.
 - Consolidating the current distributed PCB architecture into a single integrated interface board to reduce wiring complexity, improve reliability, and simplify assembly.
 
-
-
 ---
 
 ## Skills Demonstrated
@@ -372,13 +391,6 @@ Additional hardware improvements identified during the design process include:
 - PCB system design using KiCad
 - Embedded controller integration and communication planning
 
-### Robotics and Sensing Systems
-- LiDAR-based 3D mapping systems
-- IMU integration and orientation tracking
-- Encoder-based position feedback systems
-- Sensor synchronization concepts
-- Point cloud generation and processing workflows
-
 ### Engineering Analysis
 - MATLAB-based system modeling and scanning analysis
 - Rotational velocity optimization
@@ -390,11 +402,9 @@ Additional hardware improvements identified during the design process include:
 - SolidWorks
 - KiCad
 - MATLAB
-- ANSYS Mechanical
 - Python
-- Git/GitHub
-- Technical documentation and engineering communication
-
+- Technical documentation
+  
 ---
 
 ## Acknowledgments
@@ -411,3 +421,13 @@ Additional contributions from team members are acknowledged where applicable, in
 
 ## References
 
+<p align="center">
+  <img src="https://img.shields.io/badge/References-Compiling-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" alt="References Status" />
+</p>
+
+<blockquote>
+  <p align="center">
+    <strong>📚 Academic & Technical References coming soon.</strong><br>
+    Currently compiling literature on LiDAR spatial mapping algorithms, 2D-to-3D point cloud reconstruction math, and academic papers on forestry canopy density measurement standards.
+  </p>
+</blockquote>
