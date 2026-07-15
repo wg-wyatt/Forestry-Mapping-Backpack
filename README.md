@@ -1,6 +1,8 @@
 # Forestry Mapping Backpack
 
-<!-- Insert Cover Image Here -->
+<p align="center">
+  <img src="Media/Main_Assem.JPG" alt="Forestry Mapping Backpack" width="100%">
+</p>
 
 ---
 
