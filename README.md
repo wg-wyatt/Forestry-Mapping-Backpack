@@ -179,6 +179,52 @@ Critical functional interfaces were designed for repeatable assembly and would b
 
 ## Electrical Design
 
+The electrical architecture was designed to integrate the LiDAR sensor, IMU, motor control system, embedded controller, and onboard processing hardware into the existing Purdue Forestry backpack platform. The design focused on maintaining compatibility with the legacy 24 V power system while providing reliable communication between sensing, motion, and processing subsystems.
+
+<p align="center">
+  <img src="Media/System%20Overview.png" alt="System Overview Diagram" width="650" />
+  <br>
+  <em>System Overview Diagram</em>
+</p>
+
+### Drive System
+
+The purpose of the design is to provide closed-loop control of the LiDAR rotation axis while maintaining reliable communication between the motion hardware and the onboard processing system.
+
+<p align="center">
+  <img src="Media/Motor_Drive_System_Schematic.png" alt="Motor Drive System Schematic" width="650" />
+  <br>
+  <em>Motor Drive System Schematic</em>
+</p>
+
+The embedded controller communicates with the motor driver to provide rotational commands, including direction and speed control. The motor driver supplies the required power to the actuator while isolating the low-power control electronics from the higher-current motor circuit.
+
+An encoder feedback system is integrated into the drive architecture to provide rotational position information. This feedback allows the system to monitor the actual motor position and provides the positional data required to synchronize the LiDAR scan with the mechanical rotation of the secondary axis.
+
+The drive system architecture consists of:
+
+- **Embedded controller:** Generates motion commands and manages communication with the motor driver and feedback devices.
+- **Motor driver:** Converts low-power control signals into the required motor power output.
+- **Motor and encoder:** Provide rotational actuation and position feedback for closed-loop monitoring.
+
+The schematic was developed to separate power, control, and feedback signals, improving system organization and simplifying future troubleshooting, fabrication, and integration.
+
+
+### PCB Design
+
+A custom PCB was developed to consolidate system interfaces and simplify integration between the embedded controller, sensors, and external hardware. The board provides organized connections for power, communication, and control signals while reducing wiring complexity compared to a fully discrete implementation.
+
+Future revisions would integrate additional functionality into a single consolidated interface board to further improve reliability, manufacturability, and ease of assembly.
+
+<p align="center">
+  <img src="Media/PCB.png" alt="Custom PCB Layout" width="650" />
+  <br>
+  <em>Custom interface board routing and connector layout</em>
+</p>
+
+<p align="center">
+  📂 <strong><a href="Electronics">View Schematic & Board Layout Files (Electronics Folder)</a></strong>
+</p>
 
 ---
 
