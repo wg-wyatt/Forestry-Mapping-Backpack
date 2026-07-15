@@ -3,12 +3,12 @@
 <table align="center" width="100%">
   <tr>
     <td align="center" valign="middle" width="50%">
-      <img src="Media/Main_Assem_v2.JPG" alt="Forestry Mapping Backpack Exterior" />
+      <img src="Media/Main_Assem_v4.JPG" alt="Forestry Mapping Backpack Exterior" />
       <br>
       <b>Exterior Assembly</b>
     </td>
     <td align="center" valign="middle" width="50%">
-      <img src="Media/Main_Assem_inside_v2.JPG" alt="Forestry Mapping Backpack Interior" />
+      <img src="Media/Main_Assem_inside_v4.JPG" alt="Forestry Mapping Backpack Interior" />
       <br>
       <b>Interior Assembly</b>
     </td>
