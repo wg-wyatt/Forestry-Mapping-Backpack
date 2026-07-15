@@ -1,8 +1,19 @@
 # Forestry Mapping Backpack
 
-<p align="center">
-  <img src="Media/Main_Assem.JPG" alt="Forestry Mapping Backpack" width="100%">
-</p>
+<table width="100%">
+  <tr>
+    <td width="50%" align="center">
+      <img src="Media/Main_Assem_v1.JPG" alt="Forestry Mapping Backpack Exterior" width="100%"/>
+      <br>
+      <b>Exterior Assembly</b>
+    </td>
+    <td width="50%" align="center">
+      <img src="Media/Main_Assem_inside.JPG" alt="Forestry Mapping Backpack Interior" width="100%"/>
+      <br>
+      <b>Interior Assembly</b>
+    </td>
+  </tr>
+</table>
 
 ---
 
