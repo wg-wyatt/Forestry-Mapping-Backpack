@@ -89,7 +89,9 @@ The system is composed of four primary subsystems:
 3. **Power Distribution System** — Battery, voltage regulation, and protection circuitry responsible for supplying power to all electrical components.
 4. **Processing and Data System** — Embedded computing platform responsible for sensor communication, data synchronization, and point cloud generation.
 
-<!-- Insert System Architecture Diagram Here -->
+<p align="center">
+  <img src="Media/System_Signal_Diagram.jpg" alt="System Diagram" width="550" />
+</p>
 
 ### Sensing System
 
@@ -99,19 +101,20 @@ The sensing subsystem consists of an Ouster OS1 LiDAR sensor paired with an Elli
 
 The motion control subsystem provides controlled rotation of the LiDAR assembly through a motor-driven mechanism. A geared timing belt transmission was selected to ensure stable torque transmission during operation. Encoder feedback is used to track rotational position and synchronize the scanning motion with collected sensor data.
 
+<p align="center">
+  <img src="Media/Motor_Drive_System_Schematic.png" alt="Motor Drive System Schematic" width="650" />
+  <br>
+  <em>Motor Drive System Schematic</em>
+</p>
+
 ### Power Distribution System
 
 The system operates using a 24 V hot-swappable battery architecture inherited from the existing backpack platform. Power is distributed to the LiDAR, motor controller, embedded electronics, and onboard computer through dedicated power regulation and distribution hardware.
 
-<!-- Insert Power Architecture Diagram Here -->
 
 ### Processing and Data System
 
 The processing subsystem uses an NVIDIA Jetson Orin platform to collect sensor data, synchronize measurements, and generate three-dimensional point clouds. Communication between the LiDAR, IMU, motor controller, and processing hardware was designed to maintain reliable data transfer while minimizing external wiring.
-
-### System Integration
-
-The final architecture integrates mechanical, electrical, and software subsystems into a modular platform designed for field deployment. Interfaces were intentionally designed to support assembly, maintenance, and future improvements without requiring complete system redesign.
 
 ---
 
