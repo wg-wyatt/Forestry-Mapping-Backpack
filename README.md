@@ -1,18 +1,14 @@
 # Forestry Mapping Backpack
 
-<table width="100%">
+<table align="center" width="100%">
   <tr>
-    <td width="50%" align="center">
-      <div style="width: 100%; height: 450px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-        <img src="Media/Main_Assem_v2.JPG" alt="Forestry Mapping Backpack Exterior" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(3.0);"/>
-      </div>
+    <td align="center" valign="middle" width="50%">
+      <img src="Media/Main_Assem_v2.JPG" alt="Forestry Mapping Backpack Exterior" />
       <br>
       <b>Exterior Assembly</b>
     </td>
-    <td width="50%" align="center">
-      <div style="width: 100%; height: 450px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-        <img src="Media/Main_Assem_inside_v2.JPG" alt="Forestry Mapping Backpack Interior" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transform: scale(3.0);"/>
-      </div>
+    <td align="center" valign="middle" width="50%">
+      <img src="Media/Main_Assem_inside_v2.JPG" alt="Forestry Mapping Backpack Interior" />
       <br>
       <b>Interior Assembly</b>
     </td>
