@@ -101,12 +101,6 @@ The sensing subsystem consists of an Ouster OS1 LiDAR sensor paired with an Elli
 
 The motion control subsystem provides controlled rotation of the LiDAR assembly through a motor-driven mechanism. A geared timing belt transmission was selected to ensure stable torque transmission during operation. Encoder feedback is used to track rotational position and synchronize the scanning motion with collected sensor data.
 
-<p align="center">
-  <img src="Media/Motor_Drive_System_Schematic.png" alt="Motor Drive System Schematic" width="650" />
-  <br>
-  <em>Motor Drive System Schematic</em>
-</p>
-
 ### Power Distribution System
 
 The system operates using a 24 V hot-swappable battery architecture inherited from the existing backpack platform. Power is distributed to the LiDAR, motor controller, embedded electronics, and onboard computer through dedicated power regulation and distribution hardware.
