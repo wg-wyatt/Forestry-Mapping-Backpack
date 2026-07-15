@@ -114,22 +114,26 @@ The processing subsystem uses an NVIDIA Jetson Orin platform to collect sensor d
 
 ## Mechanical Design
 
-The mechanical design of the LiDAR Backpack Mapping System focused on creating a compact, modular, and manufacturable platform capable of integrating the sensing, motion, and electrical subsystems while remaining compatible with the existing Purdue Forestry backpack. Key design objectives included reducing the sensor offset from the user's center of mass, incorporating a secondary axis of rotation, protecting sensitive electronics, and simplifying assembly and maintenance.
-
-<!-- Insert Full Assembly Render Here -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%">
+  <tr>
+    <td width="10%" align="center" valign="middle">
+      <img src="Media/Main_Assem_V4.JPG" alt="Forestry Mapping Backpack Full Assembly" width="100%" />
+    </td>
+    <td width="55%" valign="middle">
+      <p>The mechanical design of the LiDAR Backpack Mapping System focused on creating a compact, modular, and manufacturable platform capable of integrating the sensing, motion, and electrical subsystems while remaining compatible with the existing Purdue Forestry backpack. Key design objectives included reducing the sensor offset from the user's center of mass, incorporating a secondary axis of rotation, protecting sensitive electronics, and simplifying assembly and maintenance.</p>
+    </td>
+  </tr>
+</table>
 
 ### System Packaging
 
-The system was designed around a modular architecture consisting of four primary mechanical assemblies:
+The system was designed around a modular architecture consisting of 3 primary mechanical assemblies:
 
 - Backpack mounting interface
 - Rotating LiDAR platform
-- Motion transmission system
 - Electronics enclosure
 
 Separating these functions into individual assemblies allows components to be serviced, modified, or replaced without requiring complete disassembly of the platform. The modular approach also supports future upgrades and simplifies manufacturing.
-
-<!-- Insert Exploded Assembly View Here -->
 
 ### Rotational Drive System
 
@@ -137,7 +141,21 @@ A motor-driven timing belt transmission was selected to rotate the LiDAR assembl
 
 The drivetrain utilizes a 15-tooth driving pulley and a 75-tooth driven pulley, producing a 5:1 reduction ratio. This configuration increases available output torque while achieving the rotational speed required for point cloud generation. Transmission geometry, including pulley spacing and belt length, was determined through analytical calculations to ensure proper belt engagement and reliable operation.
 
-<!-- Insert Drive System CAD Image Here -->
+<p align="center">
+  <img src="Media/Mech_Drive_System.JPG" alt="Mechanical Drive System Assembly" width="650" />
+  <br>
+  <em>Rotational Drive System Assembly</em>
+</p>
+
+<details>
+  <summary align="center"><b>📐 View Exploded CAD Assembly</b></summary>
+  <br>
+  <p align="center">
+    <img src="Media/Mech_Drive_System_expl.JPG" alt="Mechanical Drive System Exploded View" width="650" />
+    <br>
+    <em>Exploded Assembly showcasing the T2 timing belt drivetrain, bearings, and custom motor mount.</em>
+  </p>
+</details>
 
 ### Structural Design
 
@@ -145,15 +163,11 @@ The structural frame was designed to support the rotating LiDAR assembly while m
 
 Mechanical interfaces were designed using commercially available bearings, fasteners, and drivetrain components to reduce manufacturing complexity and improve long-term maintainability.
 
-<!-- Insert Section View or Structural Detail Here -->
-
 ### Electronics Packaging
 
 The enclosure was designed to protect the custom electronics while providing convenient access for assembly, maintenance, and future upgrades. Internal packaging considered component accessibility, cable routing, connector placement, and integration with the rotating assembly.
 
 The enclosure architecture allows the sensing, control, and power subsystems to be integrated into a compact package while reducing exposed wiring during field operation.
-
-<!-- Insert Electronics Enclosure Render Here -->
 
 ### Design for Manufacturing
 
