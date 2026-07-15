@@ -229,7 +229,7 @@ Once the drivetrain geometry was established, the rotating assembly was modeled 
 The calculated rotational speed and torque requirements were compared against the selected motor specifications to verify that the drivetrain would operate within the manufacturer's recommended operating range.
 
 <p align="center">
-  📂 <strong><a href="Analysis%20%26%20Code/GearSystemCalc.docx">View Gear System Calculations (GearSystemCalc.docx)</a></strong>
+  📂 <strong><a href="Analysis%20%26%20Code/GearSystemCalc.pdf">View Gear System Calculations (GearSystemCalc.docx)</a></strong>
 </p>
 
 ### Structural Analysis (FEA)
