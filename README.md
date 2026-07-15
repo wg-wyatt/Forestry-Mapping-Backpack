@@ -218,26 +218,19 @@ The complete simulation script used to model the scanning spatial density can be
 
 ### Rotation System and Gear Design
 
-The rotational axis was designed to provide controlled motion of the LiDAR assembly while satisfying the rotational velocity requirements established through MATLAB scanning analysis. The drivetrain design focused on selecting a reliable transmission method that could provide the required speed reduction, torque capacity, and compact packaging.
+The rotational drive system was developed to achieve the operating speed established through the MATLAB analysis while maintaining reliable torque transmission and compact packaging.
 
-A T2 timing belt system was selected due to its suitability for compact motion transmission and availability of standardized pulley components. Based on manufacturer recommendations, the design targeted a 5:1 reduction ratio to balance torque multiplication, rotational speed, and reliable belt engagement.
+A T2 timing belt was selected to provide positive, slip-free torque transmission between the motor and the rotating LiDAR assembly. Manufacturer design recommendations from MiSUMi were used during transmission selection, including a maximum recommended reduction ratio of **5:1** and a minimum pinion tooth engagement greater than six teeth. A 2 mm pitch timing belt was selected because it is commonly used in high-precision, low-speed motion systems and is readily available as a commercial component.
 
-The drivetrain geometry was developed from the selected motor pulley. The driven pulley size was calculated based on the required reduction ratio, and the resulting center-to-center spacing and belt length were determined to ensure proper belt fit and operation.
+Using the selected pinion gear, the driven pulley diameter, tooth count, center-to-center pulley spacing, and timing belt length were analytically determined to satisfy both the required reduction ratio and packaging constraints.
 
-Key calculations included:
+Once the drivetrain geometry was established, the rotating assembly was modeled to estimate its mass moment of inertia. The driven pulley was approximated as a solid cylinder, while the LiDAR assembly was modeled as a rotating mass about the same axis. These values were used to calculate the torque required to accelerate the system to its operating speed within the desired startup time.
 
-- Driven pulley sizing based on required gear ratio
-- Pulley center separation distance
-- Required timing belt length
-- Rotational velocity after reduction
-- Torque required to rotate the LiDAR assembly
-- Motor startup torque under load conditions
+The calculated rotational speed and torque requirements were compared against the selected motor specifications to verify that the drivetrain would operate within the manufacturer's recommended operating range.
 
-The final transmission design provided the required rotational speed while maintaining sufficient torque capacity to rotate the LiDAR assembly and associated mechanical components.
-
-<!-- Insert timing belt sketch/calculations here -->
-
-<!-- Insert drivetrain CAD image here -->
+<p align="center">
+  📂 <strong><a href="Analysis%20%26%20Code/GearSystemCalc.docx">View Gear System Calculations (GearSystemCalc.docx)</a></strong>
+</p>
 
 ### Structural Analysis (FEA)
 <p align="center">
