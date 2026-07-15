@@ -398,13 +398,6 @@ Additional hardware improvements identified during the design process include:
 - PCB system design using KiCad
 - Embedded controller integration and communication planning
 
-### Robotics and Sensing Systems
-- LiDAR-based 3D mapping systems
-- IMU integration and orientation tracking
-- Encoder-based position feedback systems
-- Sensor synchronization concepts
-- Point cloud generation and processing workflows
-
 ### Engineering Analysis
 - MATLAB-based system modeling and scanning analysis
 - Rotational velocity optimization
@@ -416,11 +409,9 @@ Additional hardware improvements identified during the design process include:
 - SolidWorks
 - KiCad
 - MATLAB
-- ANSYS Mechanical
 - Python
-- Git/GitHub
-- Technical documentation and engineering communication
-
+- Technical documentation
+  
 ---
 
 ## Acknowledgments
