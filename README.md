@@ -201,9 +201,14 @@ The MATLAB model incorporated the LiDAR measurement frequency and simulated the 
 
 The resulting analysis established the required rotational velocity of the LiDAR assembly, which was then used as a design input for the motor and timing belt transmission calculations. Add the details(final rpm, lidar rpm, lidar spec)
 
-<!-- Insert MATLAB plot/simulation image here -->
+<p align="center">
+  <img src="Media/Matlab_LiDAR_Map.jpg" alt="MATLAB LiDAR Point Cloud Coverage Simulation" width="650" />
+  <br>
+  <em>MATLAB Simulation showing point cloud coverage density over a 360-degree sweep at a 2.0 RPM target secondary axis speed</em>
+</p>
 
-<!-- Insert MATLAB plot/simulation code here -->
+The complete simulation script used to model the scanning spatial density can be accessed here:
+👉 **[LiDAR_CoverageArea.m](Analysis%20%26%20Code/LiDAR_CoverageArea.m)**
 
 ### Rotation System and Gear Design
 
