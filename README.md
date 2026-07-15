@@ -114,6 +114,52 @@ The processing subsystem uses an NVIDIA Jetson Orin platform to collect sensor d
 
 ## Mechanical Design
 
+The mechanical design of the LiDAR Backpack Mapping System focused on creating a compact, modular, and manufacturable platform capable of integrating the sensing, motion, and electrical subsystems while remaining compatible with the existing Purdue Forestry backpack. Key design objectives included reducing the sensor offset from the user's center of mass, incorporating a secondary axis of rotation, protecting sensitive electronics, and simplifying assembly and maintenance.
+
+<!-- Insert Full Assembly Render Here -->
+
+### System Packaging
+
+The system was designed around a modular architecture consisting of four primary mechanical assemblies:
+
+- Backpack mounting interface
+- Rotating LiDAR platform
+- Motion transmission system
+- Electronics enclosure
+
+Separating these functions into individual assemblies allows components to be serviced, modified, or replaced without requiring complete disassembly of the platform. The modular approach also supports future upgrades and simplifies manufacturing.
+
+<!-- Insert Exploded Assembly View Here -->
+
+### Rotational Drive System
+
+A motor-driven timing belt transmission was selected to rotate the LiDAR assembly while satisfying the rotational velocity requirements established through MATLAB analysis. A T2 timing belt system was chosen due to its compact packaging, reliable torque transmission, and availability of commercially available components.
+
+The drivetrain utilizes a 15-tooth driving pulley and a 75-tooth driven pulley, producing a 5:1 reduction ratio. This configuration increases available output torque while achieving the rotational speed required for point cloud generation. Transmission geometry, including pulley spacing and belt length, was determined through analytical calculations to ensure proper belt engagement and reliable operation.
+
+<!-- Insert Drive System CAD Image Here -->
+
+### Structural Design
+
+The structural frame was designed to support the rotating LiDAR assembly while maintaining stiffness and minimizing unnecessary weight. Particular attention was given to the alignment of rotating components, load paths between the backpack interface and drive system, and accessibility for assembly.
+
+Mechanical interfaces were designed using commercially available bearings, fasteners, and drivetrain components to reduce manufacturing complexity and improve long-term maintainability.
+
+<!-- Insert Section View or Structural Detail Here -->
+
+### Electronics Packaging
+
+The enclosure was designed to protect the custom electronics while providing convenient access for assembly, maintenance, and future upgrades. Internal packaging considered component accessibility, cable routing, connector placement, and integration with the rotating assembly.
+
+The enclosure architecture allows the sensing, control, and power subsystems to be integrated into a compact package while reducing exposed wiring during field operation.
+
+<!-- Insert Electronics Enclosure Render Here -->
+
+### Design for Manufacturing
+
+The mechanical system was developed with low-volume manufacturing in mind. Components were designed around conventional fabrication methods including CNC machining, sheet metal fabrication, and additive manufacturing. Standard hardware was incorporated wherever practical to minimize custom fabrication requirements and simplify procurement.
+
+Critical functional interfaces were designed for repeatable assembly and would be fully defined through manufacturing drawings and GD&T prior to fabrication. The resulting design provides a practical balance between manufacturability, structural performance, and ease of maintenance.
 
 ---
 
