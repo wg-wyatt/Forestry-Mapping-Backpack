@@ -242,7 +242,7 @@ Future revisions would integrate additional functionality into a single consolid
 
 ---
 
-## Engineering Analysis
+## LiDAR Coverage Analysis
 
 Engineering analysis was used to establish design parameters and validate critical system decisions. The analysis process began by evaluating the relationship between LiDAR measurement characteristics and scanning motion, which informed the required rotational velocity of the system. Mechanical drive calculations were then performed to select an appropriate transmission design, followed by structural analysis of the final assembly.
 
@@ -278,17 +278,49 @@ The calculated rotational speed and torque requirements were compared against th
   📂 <strong><a href="Analysis%20%26%20Code/GearSystemCalc.pdf">View Gear System Calculations (GearSystemCalc.docx)</a></strong>
 </p>
 
-### Structural Analysis (FEA)
+## Structural & Dynamic Analysis (FEA)
+
+Finite element analysis (FEA) was performed to evaluate the structural integrity and dynamic response of the redesigned LiDAR backpack assembly under operational shock and vibration conditions. 
+
 <p align="center">
-  <img src="https://img.shields.io/badge/FEA%20Analysis-In%20Progress-orange?style=for-the-badge&logo=ansys&logoColor=white" alt="FEA Status" />
+  <img src="Media/FEA_Static_Loading.JPG" alt="Full Assembly Static Loading FEA" width="650" />
+  <br>
+  <em>Full Assembly Static Stress Distribution (5 g Inertial Shock Load)</em>
 </p>
 
-<blockquote>
-  <p align="center">
-    <strong>📊 Finite Element Analysis (FEA) coming soon.</strong><br>
-    Currently setting up structural simulations in ANSYS to evaluate stress concentrations, safety margins, and structural displacement under dynamic load conditions for the custom mounting bracketry.
-  </p>
-</blockquote>
+### Static Structural Analysis
+A uniform **5 g inertial shock acceleration** was applied to evaluate structural yield margins during field transport. Component materials were modeled as linear elastic, with sheet metal structures utilizing shell or solid elements based on section thickness. Non-structural electronics were represented as equivalent point masses to maintain accurate inertial loading while optimizing solver performance.
+
+| Assembly / Component | Max Displacement | Max Von Mises Stress | Factor of Safety (FoS) |
+| :--- | :---: | :---: | :---: |
+| **LiDAR Mounting Bracket** | 0.044 mm | 13.42 MPa | 20.62 |
+| **Motor Bracket Assembly** | 0.048 mm | 13.00 MPa | 4.95 |
+| **Full Structural Assembly** | 0.085 mm | 15.30 MPa | 4.27 |
+
+* **Structural Integrity:** The carbon fiber backplate and aluminum mounting hardware maintain significant structural margin under 5 g shock conditions, exceeding yield safety factor requirements with a minimum assembly FoS of **4.27x**.
+* **Deflection Limits:** Maximum full-assembly displacement is constrained to **0.085 mm**, maintaining precise positional stability for high-accuracy point cloud generation.
+
+---
+
+### Modal Frequency Analysis
+Modal analysis was performed to identify assembly natural frequencies and prevent forced resonance with primary system excitation sources (LiDAR internal sweep at 10 Hz, secondary axis at 7 Hz, and drive motor rotation at 35 Hz).
+
+<p align="center">
+  <img src="Media/FEA_Modal_Analysis.JPG" alt="Full Assembly Modal Analysis" width="650" />
+  <br>
+  <em>Primary Assembly Mode Shape (3.77 Hz Fundamental Frequency)</em>
+</p>
+
+| Mode | Natural Frequency (Hz) | Dynamic Mode Behavior |
+| :---: | :---: | :--- |
+| **1** | 3.77 Hz | Global oscillation of LiDAR assembly relative to backplate |
+| **2** | 4.77 Hz | Torsional and lateral assembly deflection |
+| **3** | 11.52 Hz | Secondary structural bending mode |
+| **4** | 72.41 Hz | High-frequency backplate bending |
+| **5** | 80.81 Hz | Localized bracket structural mode |
+
+* **Resonance Avoidance:** System modal frequencies successfully clear the primary operating frequencies of the rotating LiDAR (10 Hz) and drive motor (35 Hz), significantly reducing the risk of operational resonance during scanning.
+* **Global Dynamic Behavior:** While the fundamental natural frequency (3.77 Hz) lies near human walking cadence (1.5–2.5 Hz and harmonics), localized stiffening modifications (such as motor bracket gussets) produced minimal frequency shifts. This demonstrates that strain energy is distributed globally across the structure, with overall dynamic behavior governed by global mass distribution and system geometry rather than local stiffness.
 
 ---
 
