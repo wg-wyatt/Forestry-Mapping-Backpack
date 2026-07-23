@@ -179,6 +179,52 @@ Critical functional interfaces were designed for repeatable assembly and would b
 
 ## Electrical Design
 
+The electrical architecture was designed to integrate the LiDAR sensor, IMU, motor control system, embedded controller, and onboard processing hardware into the existing Purdue Forestry backpack platform. The design focused on maintaining compatibility with the legacy 24 V power system while providing reliable communication between sensing, motion, and processing subsystems.
+
+<p align="center">
+  <img src="Media/System%20Overview.png" alt="System Overview Diagram" width="650" />
+  <br>
+  <em>System Overview Diagram</em>
+</p>
+
+### Drive System
+
+The purpose of the design is to provide closed-loop control of the LiDAR rotation axis while maintaining reliable communication between the motion hardware and the onboard processing system.
+
+<p align="center">
+  <img src="Media/Motor_Drive_System_Schematic.png" alt="Motor Drive System Schematic" width="650" />
+  <br>
+  <em>Motor Drive System Schematic</em>
+</p>
+
+The embedded controller communicates with the motor driver to provide rotational commands, including direction and speed control. The motor driver supplies the required power to the actuator while isolating the low-power control electronics from the higher-current motor circuit.
+
+An encoder feedback system is integrated into the drive architecture to provide rotational position information. This feedback allows the system to monitor the actual motor position and provides the positional data required to synchronize the LiDAR scan with the mechanical rotation of the secondary axis.
+
+The drive system architecture consists of:
+
+- **Embedded controller:** Generates motion commands and manages communication with the motor driver and feedback devices.
+- **Motor driver:** Converts low-power control signals into the required motor power output.
+- **Motor and encoder:** Provide rotational actuation and position feedback for closed-loop monitoring.
+
+The schematic was developed to separate power, control, and feedback signals, improving system organization and simplifying future troubleshooting, fabrication, and integration.
+
+
+### PCB Design
+
+A custom PCB was developed to consolidate system interfaces and simplify integration between the embedded controller, sensors, and external hardware. The board provides organized connections for power, communication, and control signals while reducing wiring complexity compared to a fully discrete implementation.
+
+Future revisions would integrate additional functionality into a single consolidated interface board to further improve reliability, manufacturability, and ease of assembly.
+
+<p align="center">
+  <img src="Media/PCB.png" alt="Custom PCB Layout" width="650" />
+  <br>
+  <em>Custom interface board routing and connector layout</em>
+</p>
+
+<p align="center">
+  📂 <strong><a href="Electronics">View Schematic & Board Layout Files (Electronics Folder)</a></strong>
+</p>
 
 ---
 
@@ -196,7 +242,7 @@ Critical functional interfaces were designed for repeatable assembly and would b
 
 ---
 
-## Engineering Analysis
+## LiDAR Coverage Analysis
 
 Engineering analysis was used to establish design parameters and validate critical system decisions. The analysis process began by evaluating the relationship between LiDAR measurement characteristics and scanning motion, which informed the required rotational velocity of the system. Mechanical drive calculations were then performed to select an appropriate transmission design, followed by structural analysis of the final assembly.
 
@@ -229,20 +275,52 @@ Once the drivetrain geometry was established, the rotating assembly was modeled 
 The calculated rotational speed and torque requirements were compared against the selected motor specifications to verify that the drivetrain would operate within the manufacturer's recommended operating range.
 
 <p align="center">
-  📂 <strong><a href="Analysis%20%26%20Code/GearSystemCalc.docx">View Gear System Calculations (GearSystemCalc.docx)</a></strong>
+  📂 <strong><a href="Analysis%20%26%20Code/GearSystemCalc.pdf">View Gear System Calculations (GearSystemCalc.docx)</a></strong>
 </p>
 
-### Structural Analysis (FEA)
+## Structural & Dynamic Analysis (FEA)
+
+Finite element analysis (FEA) was performed to evaluate the structural integrity and dynamic response of the redesigned LiDAR backpack assembly under operational shock and vibration conditions. 
+
 <p align="center">
-  <img src="https://img.shields.io/badge/FEA%20Analysis-In%20Progress-orange?style=for-the-badge&logo=ansys&logoColor=white" alt="FEA Status" />
+  <img src="Media/FEA_Static_Loading.JPG" alt="Full Assembly Static Loading FEA" width="650" />
+  <br>
+  <em>Full Assembly Static Stress Distribution (5 g Inertial Shock Load)</em>
 </p>
 
-<blockquote>
-  <p align="center">
-    <strong>📊 Finite Element Analysis (FEA) coming soon.</strong><br>
-    Currently setting up structural simulations in ANSYS to evaluate stress concentrations, safety margins, and structural displacement under dynamic load conditions for the custom mounting bracketry.
-  </p>
-</blockquote>
+### Static Structural Analysis
+A uniform **5 g inertial shock acceleration** was applied to evaluate structural yield margins during field transport. Component materials were modeled as linear elastic, with sheet metal structures utilizing shell or solid elements based on section thickness. Non-structural electronics were represented as equivalent point masses to maintain accurate inertial loading while optimizing solver performance.
+
+| Assembly / Component | Max Displacement | Max Von Mises Stress | Factor of Safety (FoS) |
+| :--- | :---: | :---: | :---: |
+| **LiDAR Mounting Bracket** | 0.044 mm | 13.42 MPa | 20.62 |
+| **Motor Bracket Assembly** | 0.048 mm | 13.00 MPa | 4.95 |
+| **Full Structural Assembly** | 0.085 mm | 15.30 MPa | 4.27 |
+
+* **Structural Integrity:** The carbon fiber backplate and aluminum mounting hardware maintain significant structural margin under 5 g shock conditions, exceeding yield safety factor requirements with a minimum assembly FoS of **4.27x**.
+* **Deflection Limits:** Maximum full-assembly displacement is constrained to **0.085 mm**, maintaining precise positional stability for high-accuracy point cloud generation.
+
+---
+
+### Modal Frequency Analysis
+Modal analysis was performed to identify assembly natural frequencies and prevent forced resonance with primary system excitation sources (LiDAR internal sweep at 10 Hz, secondary axis at 7 Hz, and drive motor rotation at 35 Hz).
+
+<p align="center">
+  <img src="Media/FEA_Modal_Analysis.JPG" alt="Full Assembly Modal Analysis" width="650" />
+  <br>
+  <em>Primary Assembly Mode Shape (3.77 Hz Fundamental Frequency)</em>
+</p>
+
+| Mode | Natural Frequency (Hz) | Dynamic Mode Behavior |
+| :---: | :---: | :--- |
+| **1** | 3.77 Hz | Global oscillation of LiDAR assembly relative to backplate |
+| **2** | 4.77 Hz | Torsional and lateral assembly deflection |
+| **3** | 11.52 Hz | Secondary structural bending mode |
+| **4** | 72.41 Hz | High-frequency backplate bending |
+| **5** | 80.81 Hz | Localized bracket structural mode |
+
+* **Resonance Avoidance:** System modal frequencies successfully clear the primary operating frequencies of the rotating LiDAR (10 Hz) and drive motor (35 Hz), significantly reducing the risk of operational resonance during scanning.
+* **Global Dynamic Behavior:** While the fundamental natural frequency (3.77 Hz) lies near human walking cadence (1.5–2.5 Hz and harmonics), localized stiffening modifications (such as motor bracket gussets) produced minimal frequency shifts. This demonstrates that strain energy is distributed globally across the structure, with overall dynamic behavior governed by global mass distribution and system geometry rather than local stiffness.
 
 ---
 
