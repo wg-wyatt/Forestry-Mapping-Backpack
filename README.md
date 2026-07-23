@@ -8,7 +8,7 @@
       <b>Exterior Assembly</b>
     </td>
     <td align="center" valign="middle" width="50%">
-      <img src="Media/Main_Assem_inside_V4.JPG" alt="Forestry Mapping Backpack Interior" />
+      <img src="Media/Main_Assem_inside_V5.JPG" alt="Forestry Mapping Backpack Interior" />
       <br>
       <b>Interior Assembly</b>
     </td>
