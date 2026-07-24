@@ -228,17 +228,15 @@ Future revisions would integrate additional functionality into a single consolid
 
 ---
 
-## Software Architecture
-<p align="center">
-  <img src="https://img.shields.io/badge/Firmware%20%26%20Controls-Under%20Development-blueviolet?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="Firmware Status" />
-</p>
+## System Software & Embedded Controls
 
-<blockquote>
-  <p align="center">
-    <strong>💻 Embedded Software & Control Loop documentation coming soon.</strong><br>
-    This section will document the C++ firmware running on the microcontroller, including the closed-loop PID velocity control for the secondary axis motor, encoder feedback processing, and signal routing.
-  </p>
-</blockquote>
+The system utilizes an NVIDIA Jetson Orin Nano onboard compute module running custom proprietary software to process incoming sensor streams, generate real-time 3D point clouds, and execute plant species identification algorithms. Working in tandem with the primary compute, an embedded microcontroller manages closed-loop motor dynamics, sensor data acquisition, and precise timestamping:
+
+* **Embedded Speed Control:** Interfaces directly with motor Hall effect sensors via the motor controller to provide closed-loop control. The motor operates at **35 Hz** to drive the geared transmission, maintaining the secondary axis LiDAR rotation at a continuous, stable **7 Hz**.
+* **Encoder & IMU Data Processing:** Processes quadrature encoder data for real-time rotational position tracking while timestamping high-rate IMU telemetry to ensure precise spatial orientation and point cloud time synchronization.
+* **Pipeline Processing:** Synchronizes raw LiDAR packet streams with orientation data, applying coordinate transformations and noise filtering to export uniform, high-density point cloud files (`.ply` / `.pcd`) ready for forestry canopy analysis.
+
+📂 **[View Embedded System Firmware (Complete_Code.ino)](Analysis%20%26%20Code/Complete_Code/Complete_Code.ino)**
 
 ---
 
