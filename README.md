@@ -41,11 +41,11 @@ This project was completed in collaboration with the Purdue Forestry Department.
 
 ## Problem Statement
 
-The Purdue Forestry Department developed a machine learning–based plant recognition system to assist researchers with ecological surveying and vegetation analysis. To improve the usability of the sensing platform during field deployment, the department sought a redesigned LiDAR mounting system that would better support extended hiking through uneven terrain while maintaining high-quality data collection.
+The Purdue Forestry Department developed a machine learning–based plant recognition system to assist researchers with ecological surveying and vegetation analysis. To improve the usability of the sensing platform during field deployment, the department sought a redesigned LiDAR mounting system that would improve LiDAR data collection while supporting extended hiking through uneven terrain.
 
-The existing system mounted a fixed LiDAR sensor on a tall support mast attached to a backpack frame. While functional, this configuration positioned a significant portion of the system mass away from the user's center of gravity, reducing comfort and stability during long hikes. Additionally, the fixed sensor orientation limited the flexibility of data acquisition and constrained future scanning strategies.
+The existing system mounted a fixed LiDAR sensor on a tall support mast attached to a backpack frame, relying on movement from the user to expand the limited acquisition capabilities of the static LiDAR. While functional, this configuration limited point cloud generation. Additionally, the mast system positioned a significant portion of the system mass away from the user's center of gravity, reducing comfort and stability. 
 
-The objective of this project was to design a manufacturable LiDAR mounting system that relocated the sensor closer to the user's center of mass, incorporated a secondary axis of rotation to expand scanning capability, and integrated the required mechanical, electrical, and software subsystems into a compact field-deployable package. The design was intended for low-volume fabrication using conventional manufacturing processes while supporting future prototype construction and validation.
+The objective of this project was to design a manufacturable LiDAR mounting system that incorporated a secondary axis of rotation to expand scanning capability, relocated the sensor closer to the user's center of mass, and integrated the required mechanical, electrical, and software subsystems into a compact field-deployable package. The design was intended for low-volume fabrication using conventional manufacturing processes while supporting future prototype construction and validation.
 
 ---
 
@@ -57,7 +57,7 @@ The following design requirements were established during the concept developmen
 
 | ID | Requirement | Target | Verification Method |
 |----|-------------|--------|---------------------|
-| DR-01 | Total system weight | < 5 kg (excluding backpack) | CAD mass properties |
+| DR-01 | Total system weight | < 10 kg (excluding backpack) | CAD mass properties |
 | DR-02 | Structural durability | Withstand 5 g loading without structural failure | Finite Element Analysis (FEA) |
 | DR-03 | Manufacturability | Components shall be manufacturable using conventional CNC machining, sheet metal fabrication, additive manufacturing, and commercially available hardware | Design review and manufacturing drawings |
 | DR-04 | Serviceability | Electronics and wearable components shall be removable without permanent modification to the assembly | Assembly review |
