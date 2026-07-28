@@ -18,7 +18,7 @@
 ---
 
 ## Overview
-The LiDAR Backpack Mapping System is a modular mobile sensing platform designed for ecological and forestry data collection. The system integrates a rotating LiDAR sensor, inertial measurement unit (IMU), onboard processing, and custom electronics into a compact, field-deployable package capable of generating high-resolution three-dimensional point clouds. This project encompassed the complete mechanical and electrical design process, including CAD modeling, sheet metal design, custom PCB development, system architecture, MATLAB-based engineering analysis, and structural simulation. The design emphasizes manufacturability, modularity, and ease of assembly while remaining suitable for low-volume fabrication.
+The LiDAR Backpack Mapping System is a mobile, human-wearable sensing platform engineered to improve 3D point cloud density and spatial coverage for forestry and ecological surveying. Developed to replace rigid mast-mounted sensors, the system integrates a continuous secondary rotation axis with onboard processing to optimize sensor range, lower the user's center of gravity, and improve ergonomics during extended field deployment.
 
 ---
 
@@ -40,12 +40,11 @@ This project was completed in collaboration with the Purdue Forestry Department.
 ---
 
 ## Problem Statement
+The Purdue Forestry Department utilizes a machine learning–based plant recognition system to assist researchers with ecological surveying and vegetation analysis. Their legacy setup relied on a static LiDAR sensor mounted atop a tall backpack support mast. This configuration suffered from two major limitations:
+* **Limited Spatial Coverage:** The static sensor depended entirely on natural user motion during field traversal to expand scan coverage, leading to low point cloud density and occlusions.
+* **Poor Ergonomics:** Positioning significant mass high above the backpack shifted the system's center of gravity, reducing stability and user comfort during extended hiking over uneven terrain.
 
-The Purdue Forestry Department developed a machine learning–based plant recognition system to assist researchers with ecological surveying and vegetation analysis. To improve the usability of the sensing platform during field deployment, the department sought a redesigned LiDAR mounting system that would improve LiDAR data collection while supporting extended hiking through uneven terrain.
-
-The existing system mounted a fixed LiDAR sensor on a tall support mast attached to a backpack frame, relying on movement from the user to expand the limited acquisition capabilities of the static LiDAR. While functional, this configuration limited point cloud generation. Additionally, the mast system positioned a significant portion of the system mass away from the user's center of gravity, reducing comfort and stability. 
-
-The objective of this project was to design a manufacturable LiDAR mounting system that incorporated a secondary axis of rotation to expand scanning capability, relocated the sensor closer to the user's center of mass, and integrated the required mechanical, electrical, and software subsystems into a compact field-deployable package. The design was intended for low-volume fabrication using conventional manufacturing processes while supporting future prototype construction and validation.
+The objective of this project was to engineer a field-deployable mounting platform that adds a continuous secondary rotation axis to maximize point cloud density while relocating system mass closer to the user's center of gravity.
 
 ---
 
@@ -80,35 +79,23 @@ The following design requirements were established during the concept developmen
 
 ## System Architecture
 
-The LiDAR Backpack Mapping System was designed as a modular mechatronic platform integrating sensing, motion control, power management, and onboard computation. The system architecture was developed to allow independent development and maintenance of each subsystem while maintaining compatibility with the existing Purdue Forestry Department backpack platform.
-
-The system is composed of four primary subsystems:
-
-1. **Sensing System** — LiDAR and IMU sensors responsible for collecting spatial and orientation data.
-2. **Motion Control System** — Motor, encoder, and controller responsible for rotating the LiDAR sensor and providing rotational position feedback.
-3. **Power Distribution System** — Battery, voltage regulation, and protection circuitry responsible for supplying power to all electrical components.
-4. **Processing and Data System** — Embedded computing platform responsible for sensor communication, data synchronization, and point cloud generation.
+The LiDAR Backpack Mapping System is a modular mechatronic platform structured into four core subsystems: **Sensing**, **Motion Control**, **Power Distribution**, and **Processing & Data**. 
 
 <p align="center">
   <img src="Media/System_Signal_Diagram.jpg" alt="System Diagram" width="550" />
 </p>
 
 ### Sensing System
-
-The sensing subsystem consists of an Ouster OS1 LiDAR sensor paired with an Ellipse N inertial measurement unit (IMU). The LiDAR provides high-resolution three-dimensional measurements, while the IMU provides time synchronization and orientation information required for accurate spatial reconstruction. Combining LiDAR measurements with rotational position feedback enables the generation of a complete point cloud from the scanning platform.
+The sensing subsystem consists of an Ouster OS1 LiDAR sensor paired with an Ellipse N inertial measurement unit (IMU). The LiDAR provides high-resolution 3D measurements, while the IMU provides time synchronization and spatial orientation. Combining these inputs with rotational position feedback enables full point-cloud reconstruction.
 
 ### Motion Control System
-
-The motion control subsystem provides controlled rotation of the LiDAR assembly through a motor-driven mechanism. A geared timing belt transmission was selected to ensure stable torque transmission during operation. Encoder feedback is used to track rotational position and synchronize the scanning motion with collected sensor data.
+The motion control subsystem provides controlled rotation of the LiDAR assembly via a motor-driven mechanism. A geared timing belt transmission ensures stable torque delivery, while encoder feedback tracks rotational position to synchronize scanning motion with sensor data.
 
 ### Power Distribution System
-
-The system operates using a 24 V hot-swappable battery architecture inherited from the existing backpack platform. Power is distributed to the LiDAR, motor controller, embedded electronics, and onboard computer through dedicated power regulation and distribution hardware.
-
+The system utilizes a 24 V hot-swappable battery architecture inherited from the base backpack platform. Dedicated regulation hardware distributes power safely to the LiDAR, motor controller, embedded electronics, and compute unit.
 
 ### Processing and Data System
-
-The processing subsystem uses an NVIDIA Jetson Orin platform to collect sensor data, synchronize measurements, and generate three-dimensional point clouds. Communication between the LiDAR, IMU, motor controller, and processing hardware was designed to maintain reliable data transfer while minimizing external wiring.
+An NVIDIA Jetson Orin platform serves as the central compute unit, handling data acquisition, sensor synchronization, and point-cloud generation. Communication protocols across all hardware are streamlined to minimize external cabling and maintain reliable data transfer.
 
 ---
 
@@ -116,64 +103,25 @@ The processing subsystem uses an NVIDIA Jetson Orin platform to collect sensor d
 
 <table border="0" cellpadding="10" cellspacing="0" width="100%">
   <tr>
-    <td width="10%" align="center" valign="middle">
+    <td width="40%" align="center" valign="middle">
       <img src="Media/Main_Assem_V4.JPG" alt="Forestry Mapping Backpack Full Assembly" width="100%" />
     </td>
-    <td width="55%" valign="middle">
-      <p>The mechanical design of the LiDAR Backpack Mapping System focused on creating a compact, modular, and manufacturable platform capable of integrating the sensing, motion, and electrical subsystems while remaining compatible with the existing Purdue Forestry backpack. Key design objectives included reducing the sensor offset from the user's center of mass, incorporating a secondary axis of rotation, protecting sensitive electronics, and simplifying assembly and maintenance.</p>
+    <td width="60%" valign="middle">
+      <p>The mechanical architecture focuses on a modular, field-serviceable platform designed to integrate all sub-assemblies while maintaining full compatibility with the host Purdue Forestry backpack frame. The physical layout prioritizes low system mass, protected cable routing, and high structural rigidity under dynamic motion.</p>
     </td>
   </tr>
 </table>
 
-### System Packaging
-
-The system was designed around a modular architecture consisting of 3 primary mechanical assemblies:
-
-- Backpack mounting interface
-- Rotating LiDAR platform
-- Electronics enclosure
-
-Separating these functions into individual assemblies allows components to be serviced, modified, or replaced without requiring complete disassembly of the platform. The modular approach also supports future upgrades and simplifies manufacturing.
-
 ### Rotational Drive System
+A motor-driven timing belt transmission provides continuous rotation for the LiDAR assembly based on velocity parameters defined in MATLAB. A compact T2 timing belt system was selected for high torque transfer and reliable engagement using off-the-shelf hardware.
 
-A motor-driven timing belt transmission was selected to rotate the LiDAR assembly while satisfying the rotational velocity requirements established through MATLAB analysis. A T2 timing belt system was chosen due to its compact packaging, reliable torque transmission, and availability of commercially available components.
+The drivetrain uses a 15-tooth driving pulley and a 75-tooth driven pulley to deliver a 5:1 reduction ratio. This reduction increases output torque to provide smooth, stable rotational motion across variable operating speeds.
 
-The drivetrain utilizes a 15-tooth driving pulley and a 75-tooth driven pulley, producing a 5:1 reduction ratio. This configuration increases available output torque while achieving the rotational speed required for point cloud generation. Transmission geometry, including pulley spacing and belt length, was determined through analytical calculations to ensure proper belt engagement and reliable operation.
-
-<p align="center">
-  <img src="Media/Mech_Drive_System.JPG" alt="Mechanical Drive System Assembly" width="650" />
-  <br>
-  <em>Rotational Drive System Assembly</em>
-</p>
-
-<details>
-  <summary align="center"><b>📐 View Exploded CAD Assembly</b></summary>
-  <br>
-  <p align="center">
-    <img src="Media/Mech_Drive_System_expl.JPG" alt="Mechanical Drive System Exploded View" width="650" />
-    <br>
-    <em>Exploded Assembly showcasing the T2 timing belt drivetrain, bearings, and custom motor mount.</em>
-  </p>
-</details>
-
-### Structural Design
-
-The structural frame was designed to support the rotating LiDAR assembly while maintaining stiffness and minimizing unnecessary weight. Particular attention was given to the alignment of rotating components, load paths between the backpack interface and drive system, and accessibility for assembly.
-
-Mechanical interfaces were designed using commercially available bearings, fasteners, and drivetrain components to reduce manufacturing complexity and improve long-term maintainability.
-
-### Electronics Packaging
-
-The enclosure was designed to protect the custom electronics while providing convenient access for assembly, maintenance, and future upgrades. Internal packaging considered component accessibility, cable routing, connector placement, and integration with the rotating assembly.
-
-The enclosure architecture allows the sensing, control, and power subsystems to be integrated into a compact package while reducing exposed wiring during field operation.
-
-### Design for Manufacturing
-
-The mechanical system was developed with low-volume manufacturing in mind. Components were designed around conventional fabrication methods including CNC machining, sheet metal fabrication, and additive manufacturing. Standard hardware was incorporated wherever practical to minimize custom fabrication requirements and simplify procurement.
-
-Critical functional interfaces were designed for repeatable assembly and would be fully defined through manufacturing drawings and GD&T prior to fabrication. The resulting design provides a practical balance between manufacturability, structural performance, and ease of maintenance.
+### Structural Packaging & Integration
+The frame and enclosure assemblies are structured to support the mechanical loads of the continuous rotation drive without requiring structural overhaul of the base backpack:
+* **Drive Support Frame:** Provides a rigid mounting interface for the motor, bearing stack, and pulley system to maintain precise belt alignment and tension during dynamic motion.
+* **Unified Component Enclosure:** Houses the compute, power regulation, and data acquisition hardware within a single physical module, allowing for seamless electrical integration between the motion system and the original architecture
+* **Serviceable Assemblies:** Component layouts allow the drive assembly or processing housing to be accessed and serviced independently without full frame disassembly.
 
 ---
 
